@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 
-const ShadeInput = () =>{
-
-    const [color, setColor] = useState("black")
-
-    const inputColor = (event) => {
-        setColor(event.target.input)
-    }
+const ShadeInput = (props) =>{
 
     return (
         <>
         <div className="shade-search"> 
             <div className="emojis"> &#128512; &#128512; &#128512; &#128512;</div>
-            <input type="text"   className="shade-input" onChange={inputColor} /> 
+            <input type="text"   
+            className="shade-input"
+             value={props.color}
+             onChange={(e) => props.oninputchange(e.target.value)} /> 
             <div className="emojis">&#128512; &#128512;&#128512;&#128512; </div>
         </div>
         </>
