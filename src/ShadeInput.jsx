@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const ShadeInput = (props) =>{
 
@@ -8,9 +8,10 @@ const ShadeInput = (props) =>{
             <div className="emojis"> &#128512; &#128512; &#128512; &#128512;</div>
             <input type="text"   
             className="shade-input"
-             value={props.color}
-             onChange={(e) => props.oninputchange(e.target.value)} /> 
-            <div className="emojis">&#128512; &#128512;&#128512;&#128512; </div>
+            onChange={(e) => props.onInputChange(e.target.value)} 
+             value={props.color}/> 
+            
+            <div className="emojis"><span>&#128512; &#128512;&#128512;&#128512;</span> </div>
         </div>
         </>
     )

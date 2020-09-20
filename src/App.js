@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Shades from './Shades';
-import ShadeInput from  './ShadeInput'
+import ShadeInput from  './ShadeInput';
+import randomcolor from 'randomcolor';
  
  
 function App() {
-  const [color,setcolor] = useState();
+  const [color,setColor] = useState();
 
-  const oninputchange = (value) => {
-    setcolor(value)
+  useEffect(() => {
+    setColor(randomcolor())
+  },[])
+
+  const onInputChange = (value) => {
+    setColor(value);
   }
 
 
   return (
 
     <div className="App">
-      <ShadeInput color={color} oninputchange={oninputchange} />
-      <Shades />
+      <ShadeInput color={color} onInputChange={onInputChange} />
+      <Shades color={color} />
 
     </div>
   );
